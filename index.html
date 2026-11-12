@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Financial Services | MoneYed</title>
+    <!-- Plugins CSS -->
+    <link href="css/plugins.css" rel="stylesheet" />
+    <link href="css/jquery-ui.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="images/faviconMoneYed.png"
+    />
+    <!-- External -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Pre Loader -->
+    <div id="dvLoading"></div>
+    <!-- Navigation Start -->
+    <nav
+      id="navbar"
+      class="navbar fixed-top navbar-expand-lg navbar-header navbar-mobile"
+    >
+      <div class="navbar-container container">
+        <div class="navbar-brand">
+          <a class="navbar-brand-logo" href="#top">
+            <img src="images/logo4.png" alt="logo" width="200px" />
+          </a>
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fa fa-bars"></i>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-around"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav menu-navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#top"
+                ><i class="fa fa-home"></i> Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#calculator"
+                ><i class="fa fa-calculator"></i> Calculators</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services"
+                ><i class="fa fa-dollar"></i> Zero cost Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#blog"
+                ><i class="fa fa-signal"></i> Market</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#reviews"
+                ><i class="fa fa-percent"></i> Bank Rates</a
+              >
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link learn-more-btn" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Navigation End --->
+
+    <!-- Banner Start -->
+    <div id="top" class="header">
+      <div class="container header-container">
+        <div class="d-none d-lg-block col-lg-6 header-img-section">
+          <img src="images/banner.svg" class="img-fluid" alt="banner" />
+        </div>
+        <div class="col-lg-5 offset-lg-1 col-sm-12 header-title-section">
+          <p class="header-subtitle">
+            <span class="typed-text p-0"></span
+            ><span class="cursor p-0"></span>&nbsp;
+          </p>
+          <h1 class="header-title">Maximize your money's potential.</h1>
+          <p class="header-title-text">
+            Our website offers financial services and calculation utilities for
+            free. Get accurate and reliable results to make informed financial
+            decisions.
+          </p>
+          <div class="learn-more-btn-section">
+            <a class="nav-link learn-more-btn btn-invert" href="#services"
+              >Learn More</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Banner End -->
+
+    <!-- calculator Start -->
+    <section id="calculator" class="calculator-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="section-heading">Utility Calculators</h2>
+            <p class="section-para">
+              With this calculator, you can input your financial details and get
+              accurate calculations to determine the potential cost of loans and
+              the potential earnings from investments.
+            </p>
+          </div>
+        </div>
+        <div class="row" id="calOptions">
+          <div class="col-lg-6 col-sm-6">
+            <div
+              class="service-box btn"
+              onclick="addUtilityCalc('futureCalculatorSection');"
+            >
+              <div class="service-text">
+                <h3 class="service-heading">Future Value Calculator</h3>
+                <p class="service-para mb-3">
+                  Calculate Your Investment's Growth with Our Future Value
+                  Calculator.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div
+              class="service-box btn"
+              onclick="addUtilityCalc('emiCalculatorSection');"
+            >
+              <div class="service-text">
+                <h3 class="service-heading">EMI Calculator</h3>
+                <p class="service-para mb-3">
+                  Plan Your Loan Payments with Our EMI Calculator.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div
+              class="service-box btn"
+              onclick="addUtilityCalc('fdCalculatorSection');"
+            >
+              <div class="service-text">
+                <h3 class="service-heading">FD Calculator</h3>
+                <p class="service-para mb-3">
+                  Maximize Your Savings with Our FD Calculator.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- EMI CALCULATIONS -->
+        <div id="emiCalculatorSection">
+          <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+              <div class="emi-details"></div>
+            </div>
+            <div class="col-lg-4">
+              <div class="pie-chart">
+                <div id="emiDonutMorris"></div>
+                <span class="chart-principal"> Loan Amount</span>
+                <span class="chart-interest"> Interest Amount</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ANNUITY CALCULATIONS -->
+        <div id="annuityCalculatorSection">
+          <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+              <div class="emi-details"></div>
+            </div>
+            <div class="col-lg-4">
+              <div class="pie-chart">
+                <div id="annuityDonutMorris"></div>
+                <span class="chart-principal"> Invested Amount</span>
+                <span class="chart-interest"> Estimated Returns</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FUTURE CALCULATIONS -->
+        <div id="futureCalculatorSection">
+          <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+              <div class="emi-details"></div>
+            </div>
+            <div class="col-lg-4">
+              <div class="pie-chart">
+                <div id="futureDonutMorris"></div>
+                <span class="chart-principal"> Initial Investment</span>
+                <span class="chart-interest"> Estimated Interest</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FD CALCULATIONS -->
+        <div id="fdCalculatorSection">
+          <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+              <div class="emi-details"></div>
+            </div>
+            <div class="col-lg-4">
+              <div class="pie-chart">
+                <div id="fdDonutMorris"></div>
+                <span class="chart-principal"> Deposit Amount</span>
+                <span class="chart-interest"> Estimated Interest</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIP CALCULATIONS -->
+        <div id="sipCalculatorSection">
+          <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+              <div class="emi-details"></div>
+            </div>
+            <div class="col-lg-4">
+              <div class="pie-chart">
+                <div id="sipDonutMorris"></div>
+                <span class="chart-principal"> Invested Amount</span>
+                <span class="chart-interest"> Estimated Interest</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RD CALCULATIONS -->
+        <div id="rdCalculatorSection">
+          <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+              <div class="emi-details"></div>
+            </div>
+            <div class="col-lg-4">
+              <div class="pie-chart">
+                <div id="rdDonutMorris"></div>
+                <span class="chart-principal"> Invested Amount</span>
+                <span class="chart-interest"> Estimated Interest</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SWP CALCULATIONS -->
+        <div id="swpCalculatorSection">
+          <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+              <div class="emi-details"></div>
+            </div>
+            <div class="col-lg-4">
+              <div class="pie-chart">
+                <div id="swpDonutMorris"></div>
+                <span class="chart-principal"> Invested Amount</span>
+                <span class="chart-withdrawal"> Total Withdrawal</span>
+                <span class="chart-principalLeft"> Principal Balance</span>
+                <span class="chart-interest"> Estimated Interest</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- calculator End -->
+    <!-- Blog Start -->
+    <section class="blog-section d-none" id="statementSection">
+      <div class="container">
+        <div class="card p-2">
+          <div class="card-header h3" style="background-color: #fff">
+            <div class="row">
+              <div class="col-lg-8 col-sm-12" style="font-size: 1.5rem">
+                My heading
+                <div class="mt-3 alias-buttons">
+                  <a
+                    class="btn btn-sm btn-success text-white"
+                    onclick="downloadAsPDF();"
+                    data-abc="true"
+                    ><i class="fa fa-paper-plane mr-1"></i> Download as PDF</a
+                  >
+                  <a
+                    class="btn btn-sm btn-info text-white"
+                    onclick="pdfPrint('statementSection', 'Finacial Report by MoneYed');"
+                    data-abc="true"
+                    ><i class="fa fa-print mr-1"></i> Print PDF</a
+                  >
+                </div>
+              </div>
+              <div
+                class="col-lg-4 d-none d-md-block d-lg-block d-xl-block text-right"
+              >
+                <img src="images/logo4.png" alt="logo" width="300px" />
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-4 col-sm-5 ml-auto">
+                <table class="table table-clear" id="summaryTable"></table>
+              </div>
+            </div>
+            <div class="table-responsive-sm mt-3" id="statementTable"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Blog End -->
+    <!-- services Start -->
+
+    <section id="services" class="services-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="section-heading">Our Services</h2>
+            <p class="section-para">
+              Our goal is to provide you with accurate and reliable
+              calculations, personalized advice, and a trusted resource for all
+              your financial needs. Whether you're looking to take out a loan,
+              invest your money, or plan for your future, we're here to help you
+              achieve financial success.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-sm-6">
+            <div class="service-box btn" onclick="sendMail('Home Loan');">
+              <div class="service-icon">
+                <img src="images/services/001-credit.png" alt="icon" />
+              </div>
+              <div class="service-text">
+                <h3 class="service-heading">Home Loan</h3>
+                <p class="service-para">Expert guidance for your dream home.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="service-box btn" onclick="sendMail('Car Loan');">
+              <div class="service-icon">
+                <img src="images/services/002-automobile.png" alt="icon" />
+              </div>
+              <div class="service-text">
+                <h3 class="service-heading">Car Loan</h3>
+                <p class="service-para">
+                  Drive your dream car with our loan solutions.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="service-box btn" onclick="sendMail('Personal Loan');">
+              <div class="service-icon">
+                <img src="images/services/003-profits.png" alt="icon" />
+              </div>
+              <div class="service-text">
+                <h3 class="service-heading">Personal Loan</h3>
+                <p class="service-para">
+                  Get the Funds You Need with a Personal Loan.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="service-box btn" onclick="sendMail('Education Loan');">
+              <div class="service-icon">
+                <img src="images/services/005-mortarboard.png" alt="icon" />
+              </div>
+              <div class="service-text">
+                <h3 class="service-heading">Education Loan</h3>
+                <p class="service-para">
+                  Invest in Your Future with an Educational Loan
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- services End -->
+
+    <!-- Blog Start -->
+    <section id="blog" class="blog-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="section-heading">IND Market</h2>
+            <p class="section-para">
+              Providing you with real-time insights and information about the
+              Indian financial market to keep you up-to-date with the latest
+              developments in the financial world.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-sm-6">
+            <div class="blog-box">
+              <div class="blog-img rounded border border-left-0 border-top-0">
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                  <div class="tradingview-widget-container__widget"></div>
+                  <div class="tradingview-widget-copyright">
+                    <a
+                      href="https://www.tradingview.com/symbols/USDINR/?exchange=FX_IDC"
+                      rel="noopener"
+                      target="_blank"
+                      ><span class="blue-text">USD INR rates</span></a
+                    >
+                    by TradingView
+                  </div>
+                  <script
+                    type="text/javascript"
+                    src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js"
+                    async
+                  >
+                      {
+                      "symbol": "FX_IDC:USDINR",
+                      "width": "100%",
+                      "height": "100%",
+                      "locale": "en",
+                      "dateRange": "3M",
+                      "colorTheme": "light",
+                      "trendLineColor": "rgba(41, 98, 255, 1)",
+                      "underLineColor": "rgba(41, 98, 255, 0.3)",
+                      "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                      "isTransparent": false,
+                      "autosize": true,
+                      "largeChartUrl": ""
+                    }
+                  </script>
+                </div>
+                <!-- TradingView Widget END -->
+              </div>
+              <div class="blog-text rounded border border-top-0">
+                <div class="tags">
+                  <span>Exchange Rate</span><span>INR</span><span>USD</span>
+                </div>
+                <h3 class="blog-heading">Real-time Update: USD to INR</h3>
+                <p class="blog-para">
+                  Keeping a close eye on the USD to INR exchange rate can be a
+                  valuable tool in navigating the global economy
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="blog-box">
+              <div class="blog-img rounded border border-left-0 border-top-0">
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                  <div class="tradingview-widget-container__widget"></div>
+                  <div class="tradingview-widget-copyright">
+                    <a
+                      href="https://www.tradingview.com/symbols/BTCUSD/?exchange=BITSTAMP"
+                      rel="noopener"
+                      target="_blank"
+                      ><span class="blue-text">Bitcoin price</span></a
+                    >
+                    by TradingView
+                  </div>
+                  <script
+                    type="text/javascript"
+                    src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js"
+                    async
+                  >
+                      {
+                      "symbol": "BITSTAMP:BTCUSD",
+                      "width": "100%",
+                      "height": "100%",
+                      "locale": "en",
+                      "dateRange": "3M",
+                      "colorTheme": "light",
+                      "trendLineColor": "rgba(41, 98, 255, 1)",
+                      "underLineColor": "rgba(41, 98, 255, 0.3)",
+                      "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                      "isTransparent": false,
+                      "autosize": true,
+                      "largeChartUrl": ""
+                    }
+                  </script>
+                </div>
+                <!-- TradingView Widget END -->
+              </div>
+              <div class="blog-text rounded border border-top-0">
+                <div class="tags">
+                  <span>Cryptocurrency</span><span>Investment</span>
+                </div>
+                <h3 class="blog-heading">Live Updates: Bitcoin Price in USD</h3>
+                <p class="blog-para">
+                  Real-Time Insights: Bitcoin Price in USD Fluctuates Wildly,
+                  Reaching New Highs and Lows in a Single Day.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 d-none d-lg-block">
+            <div class="blog-box h-100">
+              <!-- TradingView Widget BEGIN -->
+              <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <div class="tradingview-widget-copyright">
+                  <a
+                    href="https://www.tradingview.com/markets/stocks-india/"
+                    rel="noopener"
+                    target="_blank"
+                    ><span class="blue-text">Stocks today</span></a
+                  >
+                  by TradingView
+                </div>
+                <script
+                  type="text/javascript"
+                  src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js"
+                  async
+                >
+                    {
+                    "colorTheme": "light",
+                    "dateRange": "3M",
+                    "exchange": "BSE",
+                    "showChart": false,
+                    "locale": "en",
+                    "width": "100%",
+                    "height": "100%",
+                    "largeChartUrl": "",
+                    "isTransparent": false,
+                    "showSymbolLogo": false,
+                    "showFloatingTooltip": false
+                  }
+                </script>
+              </div>
+              <!-- TradingView Widget END -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Blog End -->
+
+    <!-- reviews Start -->
+    <section id="reviews" class="reviews-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="section-heading">Investment Insights</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-7">
+            <div class="owl-carousel">
+              <div class="review-item">
+                <div class="review-details">
+                  <!-- TradingView Widget BEGIN -->
+                  <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <div class="tradingview-widget-copyright">
+                      <a
+                        href="https://www.tradingview.com/symbols/ECONOMICS-ININTR/"
+                        rel="noopener"
+                        target="_blank"
+                        ><span class="blue-text">ININTR quotes</span></a
+                      >
+                      by TradingView
+                    </div>
+                    <script
+                      type="text/javascript"
+                      src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js"
+                      async
+                    >
+                      {
+                      "symbol": "ECONOMICS:ININTR",
+                      "width": "100%",
+                      "height": "100%",
+                      "locale": "en",
+                      "dateRange": "12M",
+                      "colorTheme": "light",
+                      "trendLineColor": "rgba(41, 98, 255, 1)",
+                      "underLineColor": "rgba(41, 98, 255, 0.3)",
+                      "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                      "isTransparent": false,
+                      "autosize": true,
+                      "largeChartUrl": ""
+                      }
+                    </script>
+                  </div>
+                  <!-- TradingView Widget END -->
+                </div>
+                <p>
+                  The Indian interest rate, also known as Repo Rate refers to
+                  the rate at which the Reserve Bank of India (RBI), lends money
+                  to commercial banks.
+                </p>
+                <div class="review-author">
+                  <span class="review-name">Indian Interest Rate</span>
+                  <span class="review-desig">(Higher the Better)</span>
+                </div>
+              </div>
+
+              <div class="review-item">
+                <div class="review-details">
+                  <!-- TradingView Widget BEGIN -->
+                  <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <div class="tradingview-widget-copyright">
+                      <a
+                        href="https://www.tradingview.com/symbols/ECONOMICS-INBLR/"
+                        rel="noopener"
+                        target="_blank"
+                        ><span class="blue-text">INBLR quotes</span></a
+                      >
+                      by TradingView
+                    </div>
+                    <script
+                      type="text/javascript"
+                      src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js"
+                      async
+                    >
+                        {
+                        "symbol": "ECONOMICS:INBLR",
+                        "width": "100%",
+                        "height": "100%",
+                        "locale": "en",
+                        "dateRange": "12M",
+                        "colorTheme": "light",
+                        "trendLineColor": "rgba(41, 98, 255, 1)",
+                        "underLineColor": "rgba(41, 98, 255, 0.3)",
+                        "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                        "isTransparent": false,
+                        "autosize": true,
+                        "largeChartUrl": ""
+                      }
+                    </script>
+                  </div>
+                  <!-- TradingView Widget END -->
+                </div>
+                <p>
+                  Marginal Cost of Funds based Lending Rate (MCLR), is the
+                  minimum interest rate at which commercial banks in India can
+                  lend to their customers.
+                </p>
+                <div class="review-author">
+                  <span class="review-name">Indian Bank Lending Rate</span>
+                  <span class="review-desig">(Lower the Better)</span>
+                </div>
+              </div>
+              <div class="review-item">
+                <div class="review-details">
+                  <!-- TradingView Widget BEGIN -->
+                  <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <div class="tradingview-widget-copyright">
+                      <a
+                        href="https://www.tradingview.com/symbols/ECONOMICS-INIRYY/"
+                        rel="noopener"
+                        target="_blank"
+                        ><span class="blue-text">INIRYY quotes</span></a
+                      >
+                      by TradingView
+                    </div>
+                    <script
+                      type="text/javascript"
+                      src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js"
+                      async
+                    >
+                        {
+                        "symbol": "ECONOMICS:INIRYY",
+                        "width": "100%",
+                        "height": "100%",
+                        "locale": "en",
+                        "dateRange": "60M",
+                        "colorTheme": "light",
+                        "trendLineColor": "rgba(41, 98, 255, 1)",
+                        "underLineColor": "rgba(41, 98, 255, 0.3)",
+                        "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                        "isTransparent": false,
+                        "autosize": true,
+                        "largeChartUrl": ""
+                      }
+                    </script>
+                  </div>
+                  <!-- TradingView Widget END -->
+                </div>
+                <p>
+                  Inflation rate is the rate at which the general price level of
+                  goods and services in an economy increases over a certain
+                  period of time, usually a year.
+                </p>
+                <div class="review-author">
+                  <span class="review-name">Indian Inflation Rate</span>
+                  <span class="review-desig">(Lower the Better)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 offset-lg-1 d-none d-lg-block">
+            <img src="images/review.svg" class="img-fluid" alt="review" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- reviews End -->
+
+    <!-- contact Start -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="section-heading">Get In Touch</h2>
+            <p>
+              We are here to help you make informed decisions about your
+              financial future.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 d-none d-lg-block">
+            <img src="images/contact.svg" class="img-fluid" alt="blog" />
+          </div>
+          <div class="col-lg-6">
+            <form
+              class="contact-form"
+              id="contactForm"
+              method="POST"
+              data-netlify="true"
+            >
+              <div class="contact-form-head">
+                <h3>Send Message</h3>
+              </div>
+              <div class="contact-form-inner">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    placeholder="Name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    placeholder="Email"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <textarea
+                    class="form-control"
+                    name="message"
+                    placeholder="Write Your Message"
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- contact End -->
+
+    <!-- footer Start -->
+    <section class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-widget">
+              <img src="images/logo-white2.png" alt="logo" width="250" />
+              <p class="mt-4">
+                Maximize your financial potential with our trusted loan and
+                investment calculation tool and expert financial advisors.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-widget">
+              <h5>Quick Links</h5>
+              <ul>
+                <li>
+                  <a href="#services"
+                    ><i class="fa fa-angle-right"></i> Services</a
+                  >
+                </li>
+                <li>
+                  <a href="#calculator"
+                    ><i class="fa fa-angle-right"></i> Calculator</a
+                  >
+                </li>
+                <li>
+                  <a href="#blog"><i class="fa fa-angle-right"></i> Market</a>
+                </li>
+                <li>
+                  <a href="#contact"
+                    ><i class="fa fa-angle-right"></i> Contact Us</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-widget">
+              <h5>Address</h5>
+              <p class="mt-3">
+                MR. Shah and Co.<br />
+                <i class="fa fa-map-marker"></i> India<br />
+                <i class="fa fa-paper-plane"></i>
+                <a href="mailto:mail@3058.in" class="text-light">mail@3058.in</a
+                ><br />
+                <i class="fa fa-paper-plane"></i>
+                <a href="mailto:dev.anand@3058.in" class="text-light"
+                  >dev.anand@3058.in</a
+                >
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-widget">
+              <h5>Social Connect</h5>
+              <div class="social-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="footer-copyright">
+              © 2023 MoneYed All Rights Reserved.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- footer End -->
+
+    <!-- jQuery Min JS -->
+    <script src="js/jquery-min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- Popper Min JS -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap Min JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Owl Carousel Min JS -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- Owl Plugins JS -->
+    <script src="js/plugins.js"></script>
+    <!-- Smooth scroll JS -->
+    <script src="js/smoothscroll.js"></script>
+
+    <!-- morris charts -->
+    <script src="js/raphael-min.js"></script>
+    <script src="js/morris.min.js"></script>
+    <script src="js/custom-morris.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/forms.js"></script>
+    <script src="js/custom.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      const typedTextSpan = document.querySelector(".typed-text");
+      const cursorSpan = document.querySelector(".cursor");
+
+      const textArray = [
+        "Repayment Schedule",
+        "Interest Schedule",
+        "Annuity Investment",
+        "Systematic Withdrawal",
+        "Systematic Investment",
+        "Recuring Deposit",
+        "Fixed Deposit",
+        "Future Investment",
+      ];
+      const typingDelay = 200;
+      const erasingDelay = 100;
+      const newTextDelay = 2000; // Delay between current and next text
+      let textArrayIndex = 0;
+      let charIndex = 0;
+
+      function type() {
+        if (charIndex < textArray[textArrayIndex].length) {
+          if (!cursorSpan.classList.contains("typing"))
+            cursorSpan.classList.add("typing");
+          typedTextSpan.textContent +=
+            textArray[textArrayIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, typingDelay);
+        } else {
+          cursorSpan.classList.remove("typing");
+          setTimeout(erase, newTextDelay);
+        }
+      }
+
+      function erase() {
+        if (charIndex > 0) {
+          if (!cursorSpan.classList.contains("typing"))
+            cursorSpan.classList.add("typing");
+          typedTextSpan.textContent = textArray[textArrayIndex].substring(
+            0,
+            charIndex - 1
+          );
+          charIndex--;
+          setTimeout(erase, erasingDelay);
+        } else {
+          cursorSpan.classList.remove("typing");
+          textArrayIndex++;
+          if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+          setTimeout(type, typingDelay + 1100);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // On DOM Load initiate the effect
+        if (textArray.length) setTimeout(type, newTextDelay + 250);
+      });
+    </script>
+  </body>
+</html>
